@@ -20,7 +20,7 @@ for dev in devices:
     n += 1
     for (adtype, desc, value) in dev.getScanData():
         if value == "Running Speed and Cadence":
-            print "=========================== I'm here ====================\n\n\n"
+            print "======================\n\n\tI'm here\n\n======================\n"
     #    print " %s = %s" % (desc, value)
 
 number = input('Enter your device number: ')
@@ -37,11 +37,14 @@ try:
     testService = dev.getServiceByUUID(UUID(0x1814))
     for ch in testService.getCharacteristics():
         print "in try for ch", str(ch)
-    ch = dev.getCharacteristics(uuid=UUID(0x2a5D))[0]
-    if (ch.supportsRead()):
-        print(ch.read())
+    ch = dev.getCharacteristics(uuid=UUID(0x2a53))[0]
+    while 1:
+        if (ch.waitForNotifications(2.))
+            print "notice !!"
+        if (ch.supportsRead()):
+            print(ch.read())
         
-    ch_2 = dev.getCharacteristics(uuid=UUID(0x2a54))[0]
-    ch_2.write(b'\x74\x14')
+    ch_2 = dev.getCharacteristics(uuid=UUID(0x2a53))[0]
+    ch_2.write(b'\xab\xcd')
 finally:
     dev.disconnect() 
