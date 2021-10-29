@@ -39,8 +39,8 @@ try:
         print "in try for ch", str(ch)
     ch = dev.getCharacteristics(uuid=UUID(0x2a53))[0]
     while 1:
-        if (ch.waitForNotifications(2.))
-            print "notice !!"
+        if (dev.waitForNotifications(2.)):
+            print "notice !!\n"
         if (ch.supportsRead()):
             print(ch.read())
         
